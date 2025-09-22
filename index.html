@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Cross Nonprofit Partner Finder</title>
+    <meta name="description" content="AI-powered system for identifying nonprofit partners aligned with Red Cross mission">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-hands-helping text-3xl mr-3"></i>
+                    <span class="font-bold text-xl">Partner Finder</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#features" class="hover:text-gray-200">Features</a>
+                    <a href="#how-it-works" class="hover:text-gray-200">How It Works</a>
+                    <a href="#demo" class="hover:text-gray-200">Demo</a>
+                    <a href="https://github.com/franzenjb/nonprofit-partner-finder" class="hover:text-gray-200">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h1 class="text-5xl font-bold mb-4">Red Cross Nonprofit Partner Finder</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                AI-powered system that analyzes nonprofit organizations to identify and rank those that best align with the Red Cross mission
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#demo" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    Try Demo
+                </a>
+                <a href="https://github.com/franzenjb/nonprofit-partner-finder" class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition">
+                    View Code
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">
+                        <i class="fas fa-database feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Comprehensive Data Collection</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>IRS 990 financial analysis</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Website content scraping</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Social media engagement</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>News and media monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">
+                        <i class="fas fa-brain feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Analysis</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>NLP mission alignment</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>ROI calculation</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Stability scoring</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Impact prediction</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-lg p-6 card-hover">
+                    <div class="text-4xl mb-4">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Intelligent Ranking</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Multi-criteria scoring</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Explainable results</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom weight settings</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Side-by-side comparison</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center mb-8">
+                    <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mb-4 md:mb-0 md:mr-6">1</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold mb-2">Search by ZIP Code</h3>
+                        <p class="text-gray-600">Enter any ZIP code to find nonprofits in that area. Set radius and filter criteria.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center mb-8">
+                    <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mb-4 md:mb-0 md:mr-6">2</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold mb-2">Collect & Analyze Data</h3>
+                        <p class="text-gray-600">System gathers data from IRS forms, websites, and social media. AI analyzes mission alignment and calculates partnership value.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center mb-8">
+                    <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mb-4 md:mb-0 md:mr-6">3</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold mb-2">Rank & Score Partners</h3>
+                        <p class="text-gray-600">Nonprofits are scored on mission alignment, ROI potential, stability, and capacity.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mb-4 md:mb-0 md:mr-6">4</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold mb-2">Get Actionable Insights</h3>
+                        <p class="text-gray-600">Receive ranked list with clear explanations, ROI estimates, and partnership recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Interactive Demo</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Enter ZIP Code</label>
+                    <div class="flex space-x-4">
+                        <input type="text" id="zipCode" placeholder="10001" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        <button onclick="searchNonprofits()" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition">
+                            <i class="fas fa-search mr-2"></i>Search
+                        </button>
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="hidden text-center py-8">
+                    <i class="fas fa-spinner fa-spin text-4xl text-purple-600"></i>
+                    <p class="mt-4 text-gray-600">Analyzing nonprofits in your area...</p>
+                </div>
+
+                <div id="results" class="hidden">
+                    <h3 class="text-xl font-semibold mb-4">Top Partner Recommendations</h3>
+                    <div id="resultsContent" class="space-y-4">
+                        <!-- Results will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scoring Methodology -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Scoring Methodology</h2>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Scoring Weights</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span>Mission Alignment</span>
+                            <span class="font-semibold">35%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>ROI Potential</span>
+                            <span class="font-semibold">25%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Financial Stability</span>
+                            <span class="font-semibold">15%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Organizational Capacity</span>
+                            <span class="font-semibold">15%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Data Quality</span>
+                            <span class="font-semibold">10%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">ROI Factors</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Resource sharing potential</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Cost savings estimation</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Geographic reach expansion</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Service enhancement value</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Risk mitigation benefits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Technical Stack</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <i class="fab fa-python text-4xl text-blue-600 mb-2"></i>
+                    <p class="font-semibold">Python</p>
+                </div>
+                <div>
+                    <i class="fas fa-rocket text-4xl text-green-600 mb-2"></i>
+                    <p class="font-semibold">FastAPI</p>
+                </div>
+                <div>
+                    <i class="fas fa-brain text-4xl text-purple-600 mb-2"></i>
+                    <p class="font-semibold">Transformers</p>
+                </div>
+                <div>
+                    <i class="fas fa-database text-4xl text-yellow-600 mb-2"></i>
+                    <p class="font-semibold">PostgreSQL</p>
+                </div>
+                <div>
+                    <i class="fas fa-chart-bar text-4xl text-red-600 mb-2"></i>
+                    <p class="font-semibold">Pandas</p>
+                </div>
+                <div>
+                    <i class="fas fa-robot text-4xl text-indigo-600 mb-2"></i>
+                    <p class="font-semibold">Scikit-learn</p>
+                </div>
+                <div>
+                    <i class="fas fa-spider text-4xl text-gray-600 mb-2"></i>
+                    <p class="font-semibold">Scrapy</p>
+                </div>
+                <div>
+                    <i class="fas fa-cloud text-4xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Redis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Red Cross Partner Finder. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/franzenjb/nonprofit-partner-finder" class="hover:text-gray-200">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-200">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-200">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Demo functionality
+        function searchNonprofits() {
+            const zipCode = document.getElementById('zipCode').value;
+            if (!zipCode) {
+                alert('Please enter a ZIP code');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('loadingIndicator').classList.remove('hidden');
+            document.getElementById('results').classList.add('hidden');
+
+            // Simulate API call
+            setTimeout(() => {
+                showDemoResults(zipCode);
+            }, 2000);
+        }
+
+        function showDemoResults(zipCode) {
+            // Hide loading
+            document.getElementById('loadingIndicator').classList.add('hidden');
+            
+            // Sample demo data
+            const demoData = [
+                {
+                    rank: 1,
+                    name: "Community Relief Foundation",
+                    score: 92,
+                    missionAlignment: 88,
+                    roiPotential: 285000,
+                    description: "Strong alignment in disaster relief and emergency response programs."
+                },
+                {
+                    rank: 2,
+                    name: "Healthcare for All Initiative",
+                    score: 87,
+                    missionAlignment: 85,
+                    roiPotential: 195000,
+                    description: "Excellent health and safety programs with volunteer coordination."
+                },
+                {
+                    rank: 3,
+                    name: "Emergency Preparedness Alliance",
+                    score: 84,
+                    missionAlignment: 91,
+                    roiPotential: 156000,
+                    description: "Specialized in community resilience and emergency preparedness."
+                }
+            ];
+
+            // Generate results HTML
+            let resultsHTML = '';
+            demoData.forEach(org => {
+                resultsHTML += `
+                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-sm font-semibold">#${org.rank}</span>
+                                <h4 class="text-lg font-semibold mt-2">${org.name}</h4>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-purple-600">${org.score}%</div>
+                                <div class="text-sm text-gray-500">Overall Score</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">${org.description}</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-gray-500">Mission Alignment:</span>
+                                <span class="font-semibold ml-2">${org.missionAlignment}%</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500">ROI Potential:</span>
+                                <span class="font-semibold ml-2">$${org.roiPotential.toLocaleString()}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('resultsContent').innerHTML = resultsHTML;
+            document.getElementById('results').classList.remove('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

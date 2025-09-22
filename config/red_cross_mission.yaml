@@ -1,0 +1,84 @@
+# Red Cross Mission Alignment Criteria
+# These criteria define how we evaluate nonprofit alignment with Red Cross values
+
+mission_keywords:
+  primary:
+    - disaster relief
+    - emergency response
+    - humanitarian aid
+    - blood donation
+    - health and safety
+    - emergency preparedness
+    - community resilience
+    - disaster recovery
+    
+  secondary:
+    - volunteer services
+    - first aid training
+    - CPR training
+    - emergency shelter
+    - food assistance
+    - mental health support
+    - international relief
+    - veteran services
+    - refugee assistance
+    
+  tertiary:
+    - community education
+    - youth programs
+    - senior services
+    - health screening
+    - fire prevention
+    - water safety
+    - pandemic response
+
+service_categories:
+  disaster_services:
+    weight: 1.0
+    subcategories:
+      - emergency_shelter
+      - mass_feeding
+      - relief_supplies
+      - recovery_assistance
+      
+  health_safety:
+    weight: 0.9
+    subcategories:
+      - blood_services
+      - safety_training
+      - health_education
+      - emergency_medical
+      
+  support_services:
+    weight: 0.8
+    subcategories:
+      - military_families
+      - international_services
+      - volunteer_coordination
+      - community_preparation
+
+scoring_weights:
+  mission_alignment: 0.35
+  service_overlap: 0.25
+  geographic_coverage: 0.15
+  organizational_capacity: 0.15
+  partnership_history: 0.10
+
+roi_factors:
+  resource_sharing:
+    - facilities
+    - volunteers
+    - equipment
+    - expertise
+    
+  impact_multiplication:
+    - reach_expansion
+    - service_enhancement
+    - cost_reduction
+    - efficiency_gain
+    
+  sustainability:
+    - funding_stability
+    - long_term_viability
+    - growth_potential
+    - community_trust
