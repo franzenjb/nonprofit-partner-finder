@@ -65,3 +65,4 @@ config/secrets.yaml
 *.key
 *.pem
 credentials.json
+.vercel
