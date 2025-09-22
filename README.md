@@ -1,4 +1,4 @@
-# Red Cross Nonprofit Partner Finder
+# Neil Brockway Nonprofit Partner Finder
 
 An AI-powered system that analyzes publicly available data on nonprofit organizations to identify and rank those that best align with the Red Cross mission. The system helps Red Cross chapters identify high-value partners, allocate resources strategically, and strengthen community impact.
 
