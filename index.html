@@ -507,6 +507,62 @@
     </footer>
 
     <script>
+        // ZIP to state mapping for better search results
+        function getStateFromZip(zip) {
+            const zipPrefix = zip.substring(0, 3);
+            const zipToState = {
+                // New York
+                '100': 'new york', '101': 'new york', '102': 'new york', '103': 'new york',
+                '104': 'new york', '105': 'new york', '106': 'new york', '107': 'new york',
+                '108': 'new york', '109': 'new york', '110': 'new york', '111': 'new york',
+                '112': 'new york', '113': 'new york', '114': 'new york',
+                // California  
+                '900': 'california', '901': 'california', '902': 'california', '903': 'california',
+                '904': 'california', '905': 'california', '906': 'california', '907': 'california',
+                '908': 'california', '910': 'california', '911': 'california', '912': 'california',
+                '913': 'california', '914': 'california', '915': 'california', '916': 'california',
+                '917': 'california', '918': 'california', '919': 'california', '920': 'california',
+                '921': 'california', '922': 'california', '923': 'california', '924': 'california',
+                '925': 'california', '926': 'california', '927': 'california', '928': 'california',
+                '930': 'california', '931': 'california', '932': 'california', '933': 'california',
+                '934': 'california', '935': 'california', '936': 'california', '937': 'california',
+                '938': 'california', '939': 'california', '940': 'california', '941': 'california',
+                '942': 'california', '943': 'california', '944': 'california', '945': 'california',
+                '946': 'california', '947': 'california', '948': 'california', '949': 'california',
+                '950': 'california', '951': 'california', '952': 'california', '953': 'california',
+                '954': 'california', '955': 'california', '956': 'california', '957': 'california',
+                '958': 'california', '959': 'california', '960': 'california', '961': 'california',
+                // Texas
+                '750': 'texas', '751': 'texas', '752': 'texas', '753': 'texas', '754': 'texas',
+                '755': 'texas', '756': 'texas', '757': 'texas', '758': 'texas', '759': 'texas',
+                '760': 'texas', '761': 'texas', '762': 'texas', '763': 'texas', '764': 'texas',
+                '765': 'texas', '766': 'texas', '767': 'texas', '768': 'texas', '769': 'texas',
+                '770': 'texas', '772': 'texas', '773': 'texas', '774': 'texas', '775': 'texas',
+                '776': 'texas', '777': 'texas', '778': 'texas', '779': 'texas', '780': 'texas',
+                '781': 'texas', '782': 'texas', '783': 'texas', '784': 'texas', '785': 'texas',
+                '786': 'texas', '787': 'texas', '788': 'texas', '789': 'texas', '790': 'texas',
+                '791': 'texas', '792': 'texas', '793': 'texas', '794': 'texas', '795': 'texas',
+                '796': 'texas', '797': 'texas', '798': 'texas', '799': 'texas',
+                // Florida (Pinellas County is 337xx, 346xx, 347xx)
+                '320': 'florida', '321': 'florida', '322': 'florida', '323': 'florida', '324': 'florida',
+                '325': 'florida', '326': 'florida', '327': 'florida', '328': 'florida', '329': 'florida',
+                '330': 'florida', '331': 'florida', '332': 'florida', '333': 'florida', '334': 'florida',
+                '335': 'florida', '336': 'florida', '337': 'florida', '338': 'florida', '339': 'florida',
+                '341': 'florida', '342': 'florida', '344': 'florida', '346': 'florida', '347': 'florida',
+                '349': 'florida',
+                // Illinois
+                '600': 'illinois', '601': 'illinois', '602': 'illinois', '603': 'illinois',
+                '604': 'illinois', '605': 'illinois', '606': 'illinois', '607': 'illinois',
+                '608': 'illinois', '609': 'illinois', '610': 'illinois', '611': 'illinois',
+                '612': 'illinois', '613': 'illinois', '614': 'illinois', '615': 'illinois',
+                '616': 'illinois', '617': 'illinois', '618': 'illinois', '619': 'illinois',
+                '620': 'illinois', '622': 'illinois', '623': 'illinois', '624': 'illinois',
+                '625': 'illinois', '626': 'illinois', '627': 'illinois', '628': 'illinois',
+                '629': 'illinois'
+            };
+            return zipToState[zipPrefix] || null;
+        }
+        
         // REAL DATA functionality - uses live ProPublica API
         async function searchNonprofits() {
             const searchInput = document.getElementById('zipCode').value.trim();
@@ -526,25 +582,50 @@
                 
                 // Check if first part is a ZIP code
                 if (/^\d{5}$/.test(parts[0])) {
-                    // ZIP code detected
+                    // ZIP code detected (e.g., "10001 homeless")
                     const zipCode = parts[0];
                     const keyword = parts.slice(1).join(' ');
                     
-                    // Use advanced search endpoint for ZIP + keyword
-                    apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search-advanced?q=${encodeURIComponent(searchInput)}`;
-                    
-                    // For now, fallback to regular search
-                    if (keyword) {
+                    // Get state from ZIP and search
+                    const state = getStateFromZip(zipCode);
+                    if (state && keyword) {
+                        // Search for keyword + state (e.g., "homeless florida")
+                        apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent(keyword + ' ' + state)}`;
+                    } else if (keyword) {
                         apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent(keyword)}`;
                     } else {
-                        apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent('charity nonprofit foundation')}`;
+                        apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent('nonprofit ' + state)}`;
                     }
                 } else if (/^\d{5}$/.test(searchInput)) {
                     // Just a ZIP code
-                    apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent('charity nonprofit foundation')}`;
+                    const state = getStateFromZip(searchInput);
+                    apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent('nonprofit ' + (state || 'charity'))}`;
                 } else {
-                    // Regular keyword search
-                    apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent(searchInput)}`;
+                    // Check for location keywords
+                    const locationKeywords = ['county', 'city', 'state'];
+                    let hasLocation = locationKeywords.some(keyword => searchInput.toLowerCase().includes(keyword));
+                    
+                    if (hasLocation) {
+                        // Add state context for better results
+                        const stateMap = {
+                            'pinellas': 'florida', 'miami': 'florida', 'orlando': 'florida',
+                            'manhattan': 'new york', 'brooklyn': 'new york', 'bronx': 'new york',
+                            'los angeles': 'california', 'san francisco': 'california',
+                            'chicago': 'illinois', 'houston': 'texas', 'dallas': 'texas'
+                        };
+                        
+                        let enhancedQuery = searchInput;
+                        for (const [city, state] of Object.entries(stateMap)) {
+                            if (searchInput.toLowerCase().includes(city)) {
+                                enhancedQuery = searchInput + ' ' + state;
+                                break;
+                            }
+                        }
+                        apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent(enhancedQuery)}`;
+                    } else {
+                        // Regular keyword search
+                        apiUrl = `https://nonprofit-partner-finder.vercel.app/api/search?q=${encodeURIComponent(searchInput)}`;
+                    }
                 }
                 
                 const response = await fetch(apiUrl);
